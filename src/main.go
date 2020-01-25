@@ -1,11 +1,14 @@
 package main
 
 import (
+	"asap/books"
 	"fmt"
 	"log"
 	"math/rand"
 	"net/http"
 	"time"
+
+	"github.com/astaxie/beego/httplib"
 )
 
 func sayHelloName(w http.ResponseWriter, r *http.Request) {
@@ -18,7 +21,16 @@ func sayHelloName(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("key: ", k)
 		fmt.Println("val: ", strings.Join(v, " "))
 	}*/
+	fmt.Println(books.Add(1, 2))
 	fmt.Fprintf(w, "hello chain!")
+
+	action := "https://in-go.buy.mi.com/in/app/sync"
+	data := ""
+	request := httplib.Post(action).
+		Param("data", data).
+		SetTimeout(5*time.Second, 5*time.Second)
+	content, err := request.Bytes()
+	fmt.Println(string(content), err)
 
 }
 
