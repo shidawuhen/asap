@@ -1,0 +1,11 @@
+82059900ebdcd82a8a8f816777cea02ec8d320bd		branch '2i' of https://github.com/couchbase/go-couchbase
+162c266a6106641f182685b9b8e618a871936269		branch '4.1.0' of https://github.com/couchbase/go-couchbase
+5c0ac9ef0ba7a0356279cee7eadd8874c4a8f8c1		branch 'alice' of https://github.com/couchbase/go-couchbase
+12d479a70a3ef189d8fb2424f5e2eea3632c0c9a		branch 'mad-hatter' of https://github.com/couchbase/go-couchbase
+b2754d72cc9829c197d7b9ed81f6b728586dc70b		branch 'master' of https://github.com/couchbase/go-couchbase
+c794c424638717ae461363397eeb79a1463de8d1		branch 'sherlock' of https://github.com/couchbase/go-couchbase
+baa7196b14d00497d5067851267a3fb94879595b		branch 'spock' of https://github.com/couchbase/go-couchbase
+360ad438fe584981e6c2b6831b614c6fd1b6b7d9		branch 'sync_gateway' of https://github.com/couchbase/go-couchbase
+b9fe4de8236c30853a2a313772225b39669e9afc		branch 'test/sg-issue-2173' of https://github.com/couchbase/go-couchbase
+30908bfadc5e1d651c18498b0706c4ed3eb3811a		branch 'vulcan' of https://github.com/couchbase/go-couchbase
+e06e5adaf45e189d4cf3e471341af0bf80bcc312		branch 'watson' of https://github.com/couchbase/go-couchbase

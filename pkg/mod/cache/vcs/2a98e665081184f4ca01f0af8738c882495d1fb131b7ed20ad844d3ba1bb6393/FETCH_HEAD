@@ -1,0 +1,6 @@
+2b5efa099df2f184740f259544785ced3edc142d		branch 'beorn7/doc' of https://github.com/prometheus/client_model
+7bc5445566f0fe75b15de23e6b93886e982d7bf9		branch 'master' of https://github.com/prometheus/client_model
+e2da43ae71fe22f457da00bb0b1f4fcaec9113c2		branch 'proto3' of https://github.com/prometheus/client_model
+58fd25885f9df214b26caca41705800c6f2c9f98		tag 'model-0.0.2' of https://github.com/prometheus/client_model
+1d00c49a329463291fbacea0658c6857ab7a9c13		tag 'v0.1.0' of https://github.com/prometheus/client_model
+f44e7adcba5ee54c8a94709e6fc300d83245f171		tag 'v0.2.0' of https://github.com/prometheus/client_model

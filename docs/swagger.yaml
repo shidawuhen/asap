@@ -1,0 +1,20 @@
+info:
+  contact: {}
+  license: {}
+paths:
+  /ping:
+    get:
+      parameters:
+      - description: en
+        in: query
+        name: lang
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+      summary: 接口探活
+swagger: "2.0"

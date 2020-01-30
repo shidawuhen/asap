@@ -1,0 +1,4 @@
+180a1cbbdb735ca63c0348800061edc6888a37fd		branch 'fix-licences' of https://github.com/juju/errors
+a66d380203cbde892005a239eb83d202342939e4		branch 'make-replace-location-more-robust' of https://github.com/juju/errors
+d42613fe1ab9e303fc850e7a19fda2e8eeb6516e		branch 'master' of https://github.com/juju/errors
+dca0359cc1cbcf879fac988965f00bf147c45d4a		branch 'revert-8-001-use-gopkg-errgo' of https://github.com/juju/errors

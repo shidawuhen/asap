@@ -1,0 +1,14 @@
+89d80287644767070914e30199b4d959e491bd3d		branch 'addlog' of https://github.com/prometheus/common
+e7ac2f5947f07a7fb80bbb20183d9d152738e047		branch 'log-cleanup' of https://github.com/prometheus/common
+d978bcb1309602d68bb4ba69cf3f8ed900e07308		branch 'master' of https://github.com/prometheus/common
+0b8a5ddc637c7efaa06b4834e0856b5dd538deb7		tag 'v0.1.0' of https://github.com/prometheus/common
+32ed9dd9e1e3276ea7bf6c7914043cc1246d51b9		tag 'v0.2.0' of https://github.com/prometheus/common
+a82f4c12f983cc2649298185f296632953e50d3e		tag 'v0.3.0' of https://github.com/prometheus/common
+1ba88736f028e37bc17328369e94a537ae9e0234		tag 'v0.4.0' of https://github.com/prometheus/common
+7d6a80ca5263a2575832c437c6f35181243c4bec		tag 'v0.4.1' of https://github.com/prometheus/common
+e3417c7cefba1c3ea6652483899705eb31cebe0d		tag 'v0.5.0' of https://github.com/prometheus/common
+31bed53e4047fd6c510e43a941f90cb31be0972a		tag 'v0.6.0' of https://github.com/prometheus/common
+a16e85f7f2424beccd6707286940224d89f5a156		tag 'v0.7.0' of https://github.com/prometheus/common
+3bfa3a4bbedd75ee79b9983f2d9d31d99b12fca0		tag 'v0.8.0' of https://github.com/prometheus/common
+5f2f6d9efd9cbf9a99bc9060124acbf8037324a8		tag 'v0.9.0' of https://github.com/prometheus/common
+cacacface9794af831b9694a3bc8970b7fddaffa		tag 'v0.9.1' of https://github.com/prometheus/common

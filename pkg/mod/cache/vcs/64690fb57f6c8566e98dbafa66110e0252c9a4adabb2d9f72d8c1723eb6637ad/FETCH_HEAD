@@ -1,0 +1,13 @@
+b0dba0ac2781f11a6717826e21b79b770085b4ba		branch 'ci-1.12.10' of https://github.com/gopherjs/gopherjs
+f25ac80c17b3dcf3de1adadebfa128eabec80ab2		branch 'fix_dep_build_tag_calc' of https://github.com/gopherjs/gopherjs
+41633fceb1e179b901a2f6a94e99ccda2009b7db		branch 'gcimporter' of https://github.com/gopherjs/gopherjs
+89baedc74dd74098df0c4ba8792e3cf6d722d4d0		branch 'go1.10' of https://github.com/gopherjs/gopherjs
+847fc94819f9d5a4e7154e2203b36f6dbace6f48		branch 'go1.11' of https://github.com/gopherjs/gopherjs
+0a3de5b74c8597b7eaa6ecf6e8d06da932605466		branch 'go1.13' of https://github.com/gopherjs/gopherjs
+f8032deea2cb7ebc5af68c5cd36998d5b68435a1		branch 'go1.5' of https://github.com/gopherjs/gopherjs
+3c96d3c4de89bbf0f914c24a738d0f721107db1d		branch 'go1.6' of https://github.com/gopherjs/gopherjs
+d5c6ba6916a7edc9ed7593dc1b1dafa808eaf999		branch 'go1.7' of https://github.com/gopherjs/gopherjs
+95deb33d587c9f6e24b494ea9bdf9648c48f9a60		branch 'go1.8' of https://github.com/gopherjs/gopherjs
+3926a9f66452f7a8c8d9c0e4e3074383f9aff5cd		branch 'go1.9' of https://github.com/gopherjs/gopherjs
+ce3c9ade29deed38a85f259f40e823cc17213830		branch 'master' of https://github.com/gopherjs/gopherjs
+413cd88df9c330af2960adaa5ef8daa7116832bd		branch 'runtime-version-check' of https://github.com/gopherjs/gopherjs
