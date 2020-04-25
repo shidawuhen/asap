@@ -5,51 +5,33 @@
    <title>长连接测试</title>
    <textarea id="inp_send" class="form-control" style="height:100px;" placeholder="发送的内容"></textarea>
    <button type="button" id="btn_send" class="btn btn-info" onclick="fun_sendto();">发送（ctrl+回车）</button>
-
+<script type="text/javascript" src="https://dss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/js/lib/jquery-1-edb203c114.10.2.js"></script>
       <script type="text/javascript">
-         function WebSocketTest()
-         {
-            if ("WebSocket" in window)
-            {
-               alert("您的浏览器支持 WebSocket!");
+        var ws = new WebSocket("ws://localhost:9090/ping");
+        //连接打开时触发
+        ws.onopen = function(evt) {
+            console.log("Connection open ...");
+            ws.send("Hello WebSockets!");
+        };
+        //接收到消息时触发
+        ws.onmessage = function(evt) {
+            console.log("Received Message: " + evt.data);
+        };
+        //连接关闭时触发
+        ws.onclose = function(evt) {
+            console.log("Connection closed.");
+        };
 
-               // 打开一个 web socket
-               var ws = new WebSocket("ws://localhost:9090/ping");
-
-               ws.onopen = function()
-               {
-                  // Web Socket 已连接上，使用 send() 方法发送数据
-                  ws.send("Hello WebSockets!");
-                  console.log("Connection open ...");
-               };
-
-               ws.onmessage = function (evt)
-               {
-                  var received_msg = evt.data;
-                  console.log("Received Message: " + evt.data);
-               };
-
-               ws.onclose = function()
-               {
-                  // 关闭 websocket
-                  console.log("Connection closed.");
-               };
-            }
-
-            else
-            {
-               // 浏览器不支持 WebSocket
-               alert("您的浏览器不支持 WebSocket!");
-            }
-         }
+        function fun_sendto(){
+            var content = $("#inp_send").val();
+            ws.send(content);
+        }
       </script>
 
    </head>
    <body>
 
-      <div id="sse">
-         <a href="javascript:WebSocketTest()">运行 WebSocket</a>
-      </div>
+
 
    </body>
 </html>
