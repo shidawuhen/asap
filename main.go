@@ -3,24 +3,28 @@ package main
 import (
 	"net/http"
 
-	ginSwagger "github.com/swaggo/gin-swagger"
-	"github.com/swaggo/gin-swagger/swaggerFiles"
-
-	_ "asap/docs"
-
 	"github.com/gin-gonic/gin"
+	"github.com/gorilla/websocket"
 )
+
+var upGrader = websocket.Upgrader{
+	CheckOrigin: func (r *http.Request) bool {
+		return true
+	},
+}
 
 func setupRouter() *gin.Engine {
 	r := gin.Default()
-
+	r.LoadHTMLGlob("templates/*")
 	// Ping test
 	r.GET("/ping", ping)
+	r.GET("/longconnecthtml",longconnecthtml)
 
-	// 文档界面访问URL
-	// http://127.0.0.1:8080/swagger/index.html
-	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	return r
+}
+
+func longconnecthtml(c *gin.Context)  {
+	c.HTML(http.StatusOK, "longconnect.tmpl",gin.H{})
 }
 
 // @Summary 接口探活
@@ -29,11 +33,33 @@ func setupRouter() *gin.Engine {
 // @Success 200 {string} string "ok"
 // @Router /ping [get]
 func ping(c *gin.Context) {
-	c.String(http.StatusOK, "ok")
+	//c.String(http.StatusOK, "ok")
+	//升级get请求为webSocket协议
+	ws, err := upGrader.Upgrade(c.Writer, c.Request, nil)
+	if err != nil {
+		return
+	}
+	defer ws.Close()
+	for {
+		//读取ws中的数据
+		mt, message, err := ws.ReadMessage()
+		if err != nil {
+			break
+		}
+		if string(message) == "ping" {
+			message = []byte("pong")
+		}
+		//写入ws数据
+		err = ws.WriteMessage(mt, message)
+		if err != nil {
+			break
+		}
+
+	}
 }
 
 func main() {
 	r := setupRouter()
 	// Listen and Server in 0.0.0.0:8080
-	r.Run(":8080")
+	r.Run(":9090")
 }
