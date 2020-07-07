@@ -3,9 +3,6 @@ package main
 import (
 	"net/http"
 
-	ginSwagger "github.com/swaggo/gin-swagger"
-	"github.com/swaggo/gin-swagger/swaggerFiles"
-
 	_ "asap/docs"
 
 	"github.com/gin-gonic/gin"
@@ -17,9 +14,6 @@ func setupRouter() *gin.Engine {
 	// Ping test
 	r.GET("/ping", ping)
 
-	// 文档界面访问URL
-	// http://127.0.0.1:8080/swagger/index.html
-	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	return r
 }
 
@@ -29,11 +23,17 @@ func setupRouter() *gin.Engine {
 // @Success 200 {string} string "ok"
 // @Router /ping [get]
 func ping(c *gin.Context) {
-	c.String(http.StatusOK, "ok")
+	cookies := c.Request.Cookies()
+	cookieInfo := ""
+	for _, cookie := range cookies{
+		cookieInfo += cookie.Name + ":" + cookie.Value + "\n"
+	}
+	c.String(http.StatusOK, cookieInfo )
+
 }
 
 func main() {
 	r := setupRouter()
 	// Listen and Server in 0.0.0.0:8080
-	r.Run(":8080")
+	r.Run(":9090")
 }
