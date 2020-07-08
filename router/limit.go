@@ -1,10 +1,10 @@
 package router
 
 import (
-	"asap/controller/base"
+	"asap/controller/limit"
 	"github.com/gin-gonic/gin"
 )
 
-func limit(router *gin.Engine) {
-	router.GET("/limit/ping",  base.Ping)
+func limitFunc(router *gin.Engine) {
+	router.GET("/limit/randomreject",  limit.RandomReject)
 }

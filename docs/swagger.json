@@ -5,17 +5,48 @@
         "license": {}
     },
     "paths": {
-        "/ping": {
+        "/limit/randomreject": {
             "get": {
                 "produces": [
                     "application/json"
+                ],
+                "tags": [
+                    "limit"
+                ],
+                "summary": "随机拒流",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "参数描述",
+                        "name": "name",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/ping": {
+            "get": {
+                "description": "ping接口，用于测试是否调通",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "base"
                 ],
                 "summary": "接口探活",
                 "parameters": [
                     {
                         "type": "string",
-                        "description": "en",
-                        "name": "lang",
+                        "description": "参数描述",
+                        "name": "name",
                         "in": "query"
                     }
                 ],
