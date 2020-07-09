@@ -7,15 +7,17 @@ paths:
       parameters:
       - description: 参数描述
         in: query
-        name: name
+        name: 无
         type: string
       produces:
       - application/json
       responses:
         "200":
-          description: ok
+          description: 成功会返回ok
           schema:
             type: string
+        "502":
+          description: 失败返回reject
       summary: 随机拒流
       tags:
       - limit

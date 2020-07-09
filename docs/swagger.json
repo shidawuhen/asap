@@ -18,16 +18,19 @@
                     {
                         "type": "string",
                         "description": "参数描述",
-                        "name": "name",
+                        "name": "无",
                         "in": "query"
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "ok",
+                        "description": "成功会返回ok",
                         "schema": {
                             "type": "string"
                         }
+                    },
+                    "502": {
+                        "description": "失败返回reject"
                     }
                 }
             }
