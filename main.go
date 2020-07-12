@@ -18,8 +18,8 @@ func main() {
 }
 
 func initRedis(){
-	myRedis := newRedisManager("myRedis")
-	aredis.SetRedis("myRedis",myRedis)
+	myRedis := newRedisManager(aredis.BASEREDIS)
+	aredis.SetRedis(aredis.BASEREDIS,myRedis)
 }
 
 func newRedisManager(servicename string) (redis *aredis.RedisManager) {

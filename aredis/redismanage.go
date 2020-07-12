@@ -4,6 +4,9 @@ var (
 	//
 	globalArrRedis map[string]*RedisManager
 )
+const(
+	BASEREDIS = "myRedis"
+)
 
 func init() {
 	globalArrRedis = make(map[string]*RedisManager)

@@ -19,15 +19,13 @@ func CountReject(c *gin.Context) {
 	key := fmt.Sprintf("count:%d", currentTime)
 	limitCount := 1
 	fmt.Println(key)
-	trafficCount, _ := aredis.GetRedis("myRedis").Incr(key)
+	trafficCount, _ := aredis.GetRedis(aredis.BASEREDIS).Incr(key)
 	if trafficCount == 1 {
-		aredis.GetRedis("myRedis").Expire(key, 86400)
+		aredis.GetRedis(aredis.BASEREDIS).Expire(key, 86400)
 	}
-
 	if int(trafficCount) > limitCount {
 		c.String(http.StatusOK, "reject")
 		return
 	}
-
 	c.String(http.StatusOK, "ok")
 }
