@@ -15,6 +15,7 @@ var (
 	limitBucket int = 10 // 滑动窗口个数
 	curCount int32 = 0  // 记录限频数量
 	head *ring.Ring     // 环形队列（链表）
+	printRes = 0
 )
 
 func init(){
@@ -39,7 +40,9 @@ func init(){
 				arr[i] = head.Value.(int)
 				head = head.Next()
 			}
-			fmt.Println("move subCount,newCount,arr", subCount, newCount,arr)
+			if printRes == 1 {
+				fmt.Println("move subCount,newCount,arr", subCount, newCount,arr)
+			}
 			head.Value = 0
 			head = head.Next()
 		}
