@@ -13,7 +13,7 @@ import (
 // @Failure 502 "失败返回reject"
 // @Router /limit/randomreject [get]
 func RandomReject(c *gin.Context) {
-	refuseRate := 200
+	refuseRate := 100
 	if refuseRate != 0 {
 		temp := rand.Intn(1000)
 		if temp <= refuseRate {

@@ -19,13 +19,13 @@ func main() {
 		}
 	}()
 	r := gin.Default()
-	initRedis()
+	InitRedis()
 	router.InitRouter(r)
 	// Listen and Server in 0.0.0.0:8080
 	r.Run(":8082")
 }
 
-func initRedis(){
+func InitRedis(){
 	myRedis := newRedisManager(aredis.BASEREDIS)
 	aredis.SetRedis(aredis.BASEREDIS,myRedis)
 }
