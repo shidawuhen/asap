@@ -4,20 +4,11 @@ import (
 	"asap/aredis"
 	_ "asap/docs"
 	"asap/router"
-	"time"
-	"fmt"
-
 	"github.com/gin-gonic/gin"
 )
 
 
 func main() {
-	ticker := time.NewTicker(time.Millisecond*100)
-	go func() {
-		for _ = range ticker.C {
-			fmt.Println("time:", time.Now().Format("2006-01-02 15:04:05"))
-		}
-	}()
 	r := gin.Default()
 	InitRedis()
 	router.InitRouter(r)
