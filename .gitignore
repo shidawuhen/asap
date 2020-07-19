@@ -1,2 +1,6 @@
 main
 ./pkg
+asap
+pkg/
+dump.rdb
+.DS_Store

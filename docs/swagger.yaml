@@ -2,13 +2,22 @@ info:
   contact: {}
   license: {}
 paths:
+  /limit/countreject:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 成功会返回ok
+          schema:
+            type: string
+        "502":
+          description: 失败返回reject
+      summary: 计数拒流，每秒超过指定次数会拒流掉
+      tags:
+      - limit
   /limit/randomreject:
     get:
-      parameters:
-      - description: 参数描述
-        in: query
-        name: 无
-        type: string
       produces:
       - application/json
       responses:
@@ -19,6 +28,20 @@ paths:
         "502":
           description: 失败返回reject
       summary: 随机拒流
+      tags:
+      - limit
+  /limit/slidewindowsreject:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 成功会返回ok
+          schema:
+            type: string
+        "502":
+          description: 失败返回reject
+      summary: 滑动窗口计数拒流，每秒超过指定次数会拒流掉
       tags:
       - limit
   /ping:

@@ -1,9 +1,0 @@
-0070ade47025aa9830ce9ad4bb8410d8ac4516d5		branch 'addressing' of https://github.com/google/starlark-go
-45e0e2bdcfaf1339fe5ad300e32be88c3802698b		branch 'allow-toplevel-for-if' of https://github.com/google/starlark-go
-9eb4e372e0dde95d5ec1e24c002d321b435ae623		branch 'json' of https://github.com/google/starlark-go
-451bf671df237b29fe81813614d731a0a00d2ca7		branch 'master' of https://github.com/google/starlark-go
-6e8213e62f8c6e8774c24755a14da7298e5268d6		branch 'scan-parse-benchmarks' of https://github.com/google/starlark-go
-766a43c4866ca20cf647f77ccbde853679c20b00		branch 'scan-tests' of https://github.com/google/starlark-go
-d7bda29b45f0f34a8eb33557a21a7db9b6f35b61		branch 'wip-doc-http-usecase' of https://github.com/google/starlark-go
-9316001b0dcafe4995ab2fd346d9c857f7c35d56		branch 'wip-skylark-time' of https://github.com/google/starlark-go
-a421451f00df2aac1473cb29f80d24d9fb806677		branch 'wip-stargo' of https://github.com/google/starlark-go

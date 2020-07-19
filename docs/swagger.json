@@ -5,6 +5,28 @@
         "license": {}
     },
     "paths": {
+        "/limit/countreject": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "limit"
+                ],
+                "summary": "计数拒流，每秒超过指定次数会拒流掉",
+                "responses": {
+                    "200": {
+                        "description": "成功会返回ok",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "502": {
+                        "description": "失败返回reject"
+                    }
+                }
+            }
+        },
         "/limit/randomreject": {
             "get": {
                 "produces": [
@@ -14,14 +36,28 @@
                     "limit"
                 ],
                 "summary": "随机拒流",
-                "parameters": [
-                    {
-                        "type": "string",
-                        "description": "参数描述",
-                        "name": "无",
-                        "in": "query"
+                "responses": {
+                    "200": {
+                        "description": "成功会返回ok",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "502": {
+                        "description": "失败返回reject"
                     }
+                }
+            }
+        },
+        "/limit/slidewindowsreject": {
+            "get": {
+                "produces": [
+                    "application/json"
                 ],
+                "tags": [
+                    "limit"
+                ],
+                "summary": "滑动窗口计数拒流，每秒超过指定次数会拒流掉",
                 "responses": {
                     "200": {
                         "description": "成功会返回ok",
