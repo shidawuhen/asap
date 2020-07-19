@@ -11,7 +11,7 @@ import (
 )
 
 var (
-	limitCount int = 20 // 1s限频
+	limitCount int = 5 // 1s限频
 	limitBucket int = 10 // 滑动窗口个数
 	curCount int32 = 0  // 记录限频数量
 	head *ring.Ring     // 环形队列（链表）
