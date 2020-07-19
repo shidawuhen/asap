@@ -17,14 +17,14 @@ import (
 func CountReject(c *gin.Context) {
 	currentTime := time.Now().Unix()
 	key := fmt.Sprintf("count:%d", currentTime)
-	limitCount := 1
+	limitCount := 5
 	fmt.Println(key)
 	trafficCount, _ := aredis.GetRedis(aredis.BASEREDIS).Incr(key)
 	if trafficCount == 1 {
 		aredis.GetRedis(aredis.BASEREDIS).Expire(key, 86400)
 	}
 	if int(trafficCount) > limitCount {
-		c.String(http.StatusOK, "reject")
+		c.String(http.StatusBadGateway, "reject")
 		return
 	}
 	c.String(http.StatusOK, "ok")
