@@ -12,7 +12,7 @@ https://leetcode-cn.com/problems/two-sum/
 因此建两个hashmap，一个存放所有值(重复的放另一个hashmap里），一个存放第二次重复的值
 4.题目没有说大小，先不管内存问题
 */
-func twoSum(nums []int, target int) []int {
+func TwoSum(nums []int, target int) []int {
 	record1 := make(map[int]int)
 	recore2 := make(map[int]int)
 	res := make([]int,2)
