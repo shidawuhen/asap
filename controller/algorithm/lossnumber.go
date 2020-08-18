@@ -10,7 +10,7 @@ https://leetcode-cn.com/problems/que-shi-de-shu-zi-lcof/
 1 <= 数组长度 <= 10000
 
 分析：
-1.长度太小，不使用二分，直接暴力查
+1.方法一，长度太小，不使用二分，直接暴力查
 2.这道题有个隐藏的坑，如果n=4，数组为0 1 2 3，需要显示4。但是题目描述的并不准确。
 */
 
@@ -21,5 +21,38 @@ func MissingNumber(nums []int) int {
 		}
 	}
 	//如果执行到这，表明上面全都一致，所以去nums最后一位加1
+	return nums[len(nums) - 1] + 1
+}
+
+/*
+方法二：二分法。还是按照相对高端一点的算法来做吧
+*/
+
+
+func MissingNumberDichotomize(nums []int) int {
+	numLength := len(nums)
+	leftIndex := 0
+	rightIndex := numLength - 1
+	for i:= 0; i < numLength; i++{
+		//结束判断
+		if leftIndex == rightIndex {
+			if nums[leftIndex] == leftIndex{
+				return leftIndex + 1
+			}else{ //如果不一致，则索引便是缺失的值
+				return leftIndex
+			}
+		}
+		//查找中间元素
+		middleIndex := (rightIndex + leftIndex)/2
+		if nums[middleIndex] == middleIndex {//如果一致，说明前半部分没有问题
+			if middleIndex + 1 <= rightIndex{
+				leftIndex = middleIndex + 1
+			}else{
+				leftIndex = middleIndex
+			}
+		}else{
+			rightIndex = middleIndex
+		}
+	}
 	return nums[len(nums) - 1] + 1
 }
