@@ -15,44 +15,43 @@ https://leetcode-cn.com/problems/que-shi-de-shu-zi-lcof/
 */
 
 func MissingNumber(nums []int) int {
-	for k,v := range nums{
+	for k, v := range nums {
 		if k != v {
 			return k
 		}
 	}
 	//如果执行到这，表明上面全都一致，所以去nums最后一位加1
-	return nums[len(nums) - 1] + 1
+	return nums[len(nums)-1] + 1
 }
 
 /*
 方法二：二分法。还是按照相对高端一点的算法来做吧
 */
 
-
 func MissingNumberDichotomize(nums []int) int {
 	numLength := len(nums)
 	leftIndex := 0
 	rightIndex := numLength - 1
-	for i:= 0; i < numLength; i++{
+	for i := 0; i < numLength; i++ {
 		//结束判断
 		if leftIndex == rightIndex {
-			if nums[leftIndex] == leftIndex{
+			if nums[leftIndex] == leftIndex {
 				return leftIndex + 1
-			}else{ //如果不一致，则索引便是缺失的值
+			} else { //如果不一致，则索引便是缺失的值
 				return leftIndex
 			}
 		}
 		//查找中间元素
-		middleIndex := (rightIndex + leftIndex)/2
-		if nums[middleIndex] == middleIndex {//如果一致，说明前半部分没有问题
-			if middleIndex + 1 <= rightIndex{
+		middleIndex := (rightIndex + leftIndex) / 2
+		if nums[middleIndex] == middleIndex { //如果一致，说明前半部分没有问题
+			if middleIndex+1 <= rightIndex { //确保左侧移动过程中不超过rightIndex
 				leftIndex = middleIndex + 1
-			}else{
+			} else {
 				leftIndex = middleIndex
 			}
-		}else{
+		} else { //不相等表明middleIndex所指的位置已经可能是丢失的位置，保持rightIndex不+-1移动，leftIndex+-1移动
 			rightIndex = middleIndex
 		}
 	}
-	return nums[len(nums) - 1] + 1
+	return nums[len(nums)-1] + 1
 }
