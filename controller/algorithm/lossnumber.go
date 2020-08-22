@@ -29,7 +29,7 @@ func MissingNumber(nums []int) int {
 */
 
 func MissingNumberDichotomize(nums []int) int {
-	numLength := len(nums)
+	/*numLength := len(nums)
 	leftIndex := 0
 	rightIndex := numLength - 1
 	for i := 0; i < numLength; i++ {
@@ -54,4 +54,17 @@ func MissingNumberDichotomize(nums []int) int {
 		}
 	}
 	return nums[len(nums)-1] + 1
+	*/
+	leftIndex := 0
+	rightIndex := len(nums) - 1
+	midIndex := (leftIndex + rightIndex) / 2
+	for leftIndex <= rightIndex {
+		if nums[midIndex] == midIndex {
+			leftIndex = midIndex + 1
+		} else {
+			rightIndex = midIndex - 1
+		}
+		midIndex = (leftIndex + rightIndex) / 2
+	}
+	return leftIndex
 }

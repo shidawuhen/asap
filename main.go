@@ -5,10 +5,14 @@ import (
 	_ "asap/docs"
 	"asap/router"
 	"github.com/gin-gonic/gin"
+	"fmt"
+	"asap/controller/algorithm"
 )
 
 
 func main() {
+	nums := []int{0,1,3,4}
+	fmt.Println(algorithm.MissingNumberDichotomize(nums))
 	r := gin.Default()
 	InitRedis()
 	router.InitRouter(r)
