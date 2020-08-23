@@ -4,16 +4,11 @@ import (
 	"asap/aredis"
 	_ "asap/docs"
 	"asap/router"
-	"fmt"
 	"github.com/gin-gonic/gin"
-	"asap/controller/algorithm"
 )
 
 
 func main() {
-	s := "abcd"
-	t := "cdabcdabe"
-	fmt.Println(algorithm.RepeatedStringMatch(s,t))
 	r := gin.Default()
 	InitRedis()
 	router.InitRouter(r)

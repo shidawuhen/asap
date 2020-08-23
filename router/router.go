@@ -7,4 +7,5 @@ import (
 func InitRouter(router *gin.Engine) {
 	baseFunc(router)
 	limitFunc(router)
+	grpcFunc(router)
 }
