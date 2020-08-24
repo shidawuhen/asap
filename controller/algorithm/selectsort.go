@@ -12,7 +12,7 @@ package algorithm
 
 输入：nums = [5,1,1,2,0,0]
 输出：[0,0,1,1,2,5]
- 
+
 
 提示：
 
@@ -24,15 +24,15 @@ package algorithm
 
 func SortArray(nums []int) []int {
 	length := len(nums)
-	for i := 0; i < length - 1; i++ {
+	for i := 0; i < length-1; i++ {
 		index := i
-		for j := i + 1;  j < length; j++ {
+		for j := i + 1; j < length; j++ {
 			if nums[index] > nums[j] {
 				index = j
 			}
 		}
 		if index != i {
-			nums[i], nums[index] = nums[index],nums[i]
+			nums[i], nums[index] = nums[index], nums[i]
 		}
 	}
 	return nums
