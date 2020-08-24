@@ -3,6 +3,7 @@ package grpcclient
 import (
 	"github.com/gin-gonic/gin"
 	"google.golang.org/grpc"
+	"net/http"
 	"os"
 	"time"
 	pb "asap/lib/helloworld"
@@ -34,4 +35,5 @@ func Hello(contextGin *gin.Context)  {
 		log.Fatalf("could not greet: %v", err)
 	}
 	log.Printf("Greeting: %s", r.GetMessage())
+	contextGin.String(http.StatusOK, r.GetMessage())
 }
