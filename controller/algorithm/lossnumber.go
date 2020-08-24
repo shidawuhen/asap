@@ -11,7 +11,7 @@ https://leetcode-cn.com/problems/que-shi-de-shu-zi-lcof/
 
 分析：
 1.方法一，长度太小，不使用二分，直接暴力查
-2.这道题有个隐藏的坑，如果n=4，数组为0 1 2 3，需要显示4。但是题目描述的并不准确。
+2.这道题有个隐藏的坑，如果n=5，数组长度为4，数组为0 1 2 3，需要显示4。
 */
 
 func MissingNumber(nums []int) int {

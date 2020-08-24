@@ -5,10 +5,13 @@ import (
 	_ "asap/docs"
 	"asap/router"
 	"github.com/gin-gonic/gin"
+	"asap/controller/algorithm"
 )
 
 
 func main() {
+	nums := []int{5,2,3,1}
+	algorithm.SortArray(nums)
 	r := gin.Default()
 	InitRedis()
 	router.InitRouter(r)
