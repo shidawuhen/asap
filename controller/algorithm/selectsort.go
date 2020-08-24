@@ -20,6 +20,7 @@ package algorithm
 -50000 <= nums[i] <= 50000
 
 分析：练习排序算法，此处使用选择排序
+结果：测试用例通过，不过超时，O(n^2)还是太高了一些
 */
 
 func SortArray(nums []int) []int {
