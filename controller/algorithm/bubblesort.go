@@ -29,7 +29,7 @@ func Exchange(nums []int) []int {
 			oddeven[i] = 1
 		}
 	}
-	for i := 0; i < length-1 && exchange != 0; i++ {
+	for exchange != 0 {
 		boundary := exchange
 		exchange = 0
 		for j := 0; j < boundary; j++ {
