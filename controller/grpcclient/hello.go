@@ -1,6 +1,8 @@
 package grpcclient
 
 import (
+	"asap/global"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"google.golang.org/grpc"
 	"net/http"
@@ -13,10 +15,25 @@ import (
 const (
 	address     = "localhost:50051"
 	defaultName = "world"
+	GROUP = "b2c"
+	TEAM =  "i18n"
 )
+
 func Hello(contextGin *gin.Context)  {
 	// Set up a connection to the server.
-	conn, err := grpc.Dial(address, grpc.WithInsecure(), grpc.WithBlock())
+	serviceName := "/"+GROUP+ "/" + TEAM + "/"
+	address := global.GetService(serviceName)
+	fmt.Println(address)
+	if len(address) == 0 {
+		return
+	}
+	useAddress := ""
+	for _, ad := range address {
+		useAddress = ad
+	}
+	fmt.Println(useAddress)
+
+	conn, err := grpc.Dial(useAddress, grpc.WithInsecure(), grpc.WithBlock())
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
 	}
