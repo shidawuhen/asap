@@ -13,7 +13,6 @@ import (
 	"context"
 )
 const (
-	address     = "localhost:50051"
 	defaultName = "world"
 	GROUP = "b2c"
 	TEAM =  "i18n"
