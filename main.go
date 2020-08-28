@@ -10,8 +10,8 @@ import (
 
 
 func main() {
-	nums := []int{1,2,3,4}
-	algorithm.Exchange(nums)
+	nums := []int{1}
+	algorithm.Permute(nums)
 	r := gin.Default()
 	InitRedis()
 	router.InitRouter(r)
