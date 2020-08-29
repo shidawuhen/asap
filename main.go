@@ -10,8 +10,8 @@ import (
 
 
 func main() {
-	nums := []int{1}
-	algorithm.Subsets(nums)
+	nums := []int{1,2,3}
+	algorithm.NumIdenticalPairs(nums)
 	r := gin.Default()
 	InitRedis()
 	router.InitRouter(r)
