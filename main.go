@@ -11,7 +11,7 @@ import (
 
 func main() {
 	nums := []int{1}
-	algorithm.Permute(nums)
+	algorithm.Subsets(nums)
 	r := gin.Default()
 	InitRedis()
 	router.InitRouter(r)
