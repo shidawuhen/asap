@@ -16,6 +16,11 @@ package algorithm
 分析：
 解法1：
 练习快速排序，将排序后的值与原序列的值对比，最前面变化的位置和最后面变化的位置便是变更位置。结果是超时，但是算法是对的
+解法2：
+1.从左向右遍历，找到第一个不是继续增大的值，记录索引l，然后从右往左遍历，找到第一个不是继续减小的值，记录索引r
+2.在l和r中找最大和最小值
+3.从左向右遍历，找到第一个大于最小值的位置为左起点。从右往左遍历，找到第一个小于最大值的位置为右起点
+
 */
 
 func partition(array []int, startIndex int, endIndex int) int {
@@ -49,6 +54,7 @@ func quickSort(array []int, startIndex int, endIndex int) {
 	quickSort(array, middleIndex+1, endIndex)
 }
 
+//快速排序
 func SubSort(array []int) []int {
 	res := []int{-1, -1}
 	if len(array) == 0 {
@@ -78,4 +84,64 @@ func SubSort(array []int) []int {
 	}
 
 	return res
+}
+
+//简单判断
+func SubSortSimple(array []int) []int {
+	leftIndex := -1
+	rightIndex := -1
+	res := []int{leftIndex, rightIndex}
+	if len(array) == 0 {
+		return res
+	}
+	length := len(array)
+	minValue := -1
+	lSpecialIndex := -1
+	maxValue := -1
+	rSpecialIndex := -1
+	//找到左侧第一个不符合的位置
+	for i := 0; i < length-1; i++ {
+		if array[i] > array[i+1] {
+			lSpecialIndex = i + 1
+			break
+		}
+	}
+	//说明肯定不存在
+	if lSpecialIndex == -1 {
+		return res
+	}
+	//找到右侧第一个不符合的位置
+	for j := length - 1; j > 0; j-- {
+		if array[j-1] > array[j] {
+			rSpecialIndex = j - 1
+			break
+		}
+	}
+	//找两个index中的最小值和最大值
+	minValue = array[lSpecialIndex]
+	maxValue = array[lSpecialIndex]
+	for i := lSpecialIndex + 1; i <= rSpecialIndex; i++ {
+		if minValue > array[i] {
+			minValue = array[i]
+		}
+		if maxValue < array[i] {
+			maxValue = array[i]
+		}
+	}
+
+	//判断左侧比两个special都大的第一个位置
+	for i := 0; i <= lSpecialIndex; i++ {
+		if array[i] > minValue {
+			leftIndex = i
+			break
+		}
+	}
+	//判断右侧比两个special都小的第一个位置
+	for j := length - 1; j >= rSpecialIndex; j-- {
+		if array[j] < maxValue {
+			rightIndex = j
+			break
+		}
+	}
+	return []int{leftIndex, rightIndex}
 }
