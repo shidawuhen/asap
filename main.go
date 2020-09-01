@@ -10,8 +10,8 @@ import (
 
 
 func main() {
-	nums := []int{2,16,3,5,13,1,16,1,12,18,11,8,11,11,5,1}
-	algorithm.ExchangeUseMerge(nums)
+	nums := []int{1,3,4}
+	algorithm.SubSortSimple(nums)
 	r := gin.Default()
 	InitRedis()
 	router.InitRouter(r)
