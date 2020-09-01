@@ -62,9 +62,7 @@ func SubSort(array []int) []int {
 	}
 	length := len(array)
 	oldArray := make([]int, length)
-	for i := 0; i < length; i++ {
-		oldArray[i] = array[i]
-	}
+	copy(oldArray,array)
 	quickSort(array, 0, len(array)-1)
 
 	for i := 0; i < length-1; i++ {
