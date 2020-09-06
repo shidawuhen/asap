@@ -10,14 +10,8 @@ import (
 
 
 func main() {
-	nums := [][]int{
-		{1,   4,  7, 11, 15},
-	{2,   5,  8, 12, 19},
-	{3,   6,  9, 16, 22},
-	{10, 13, 14, 17, 24},
-	{18, 21, 23, 26, 30},
-	}
-	algorithm.SearchMatrix(nums,5)
+	nums := []int{3,8,-10,23,19,-4,-14,27}
+	algorithm.MinimumAbsDifference(nums)
 	r := gin.Default()
 	InitRedis()
 	router.InitRouter(r)
