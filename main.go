@@ -10,8 +10,8 @@ import (
 
 
 func main() {
-	nums := []int{3,8,-10,23,19,-4,-14,27}
-	algorithm.MinimumAbsDifference(nums)
+	//nums := []int{3,8,-10,23,19,-4,-14,27}
+	algorithm.FindKthNumber(3,3,5)
 	r := gin.Default()
 	InitRedis()
 	router.InitRouter(r)
