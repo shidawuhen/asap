@@ -2,16 +2,15 @@ package main
 
 import (
 	"asap/aredis"
+	"asap/controller/algorithm"
 	_ "asap/docs"
 	"asap/router"
 	"github.com/gin-gonic/gin"
-	"asap/controller/algorithm"
 )
 
-
 func main() {
-	//nums := []int{3,8,-10,23,19,-4,-14,27}
-	algorithm.FindKthNumber(3,3,5)
+	nums := []int{4, 5, 8, 2, 3, 9, 7, 1}
+	algorithm.SmallestK(nums, 3)
 	r := gin.Default()
 	InitRedis()
 	router.InitRouter(r)
@@ -19,9 +18,9 @@ func main() {
 	r.Run(":8082")
 }
 
-func InitRedis(){
+func InitRedis() {
 	myRedis := newRedisManager(aredis.BASEREDIS)
-	aredis.SetRedis(aredis.BASEREDIS,myRedis)
+	aredis.SetRedis(aredis.BASEREDIS, myRedis)
 }
 
 func newRedisManager(servicename string) (redis *aredis.RedisManager) {
