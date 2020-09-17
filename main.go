@@ -9,8 +9,8 @@ import (
 )
 
 func main() {
-	nums := []int{4, 5, 8, 2, 3, 9, 7, 1}
-	algorithm.SmallestK(nums, 3)
+	nums := []int{3,2,3,1,2,4,5,5,6}
+	algorithm.FindKthLargest(nums, 4)
 	r := gin.Default()
 	InitRedis()
 	router.InitRouter(r)
