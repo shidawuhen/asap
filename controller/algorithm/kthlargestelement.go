@@ -17,6 +17,9 @@ package algorithm
 
 你可以假设 k 总是有效的，且 1 ≤ k ≤ 数组的长度。
 
+分析：
+借鉴快排的划分过程，计算出轴值后，判断轴值与k的大小，选择合适区间
+
 */
 
 func FindKthLargest(nums []int, k int) int {
