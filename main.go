@@ -10,11 +10,11 @@ import (
 
 func main() {
 	nums := [][]int{
-		{1,3,1},
-		{1,5,1},
-		{4,2,1},
+		{-1},
+		{3,2},
+		{-3,1,-1},
 	}
-	algorithm.MinPathSumSimple(nums)
+	algorithm.MinimumTotal(nums)
 	r := gin.Default()
 	InitRedis()
 	router.InitRouter(r)
