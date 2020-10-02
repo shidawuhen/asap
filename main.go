@@ -9,12 +9,8 @@ import (
 )
 
 func main() {
-	nums := [][]int{
-		{-1},
-		{3,2},
-		{-3,1,-1},
-	}
-	algorithm.MinimumTotal(nums)
+	nums := []int{7,6,4,3,1}
+	algorithm.MaxProfit(nums)
 	r := gin.Default()
 	InitRedis()
 	router.InitRouter(r)
