@@ -105,3 +105,27 @@ func MinPathSumSimple(grid [][]int) int {
 	//fmt.Println(grid,grid[row-1][col-1])
 	return grid[row-1][col-1]
 }
+
+//例题2 剑指 Offer 47. 礼物的最大价值 https://leetcode-cn.com/problems/li-wu-de-zui-da-jie-zhi-lcof/
+func maxValue(grid [][]int) int {
+	row := len(grid)
+	if row == 0 {
+		return 0
+	}
+	col := len(grid[0])
+	for i := 0; i < row; i++ {
+		for j := 0; j < col; j++ {
+			minDis := 0
+			if i-1 >= 0 && (grid[i-1][j] > minDis || minDis == 0) { //上
+				minDis = grid[i-1][j]
+			}
+
+			if j-1 >= 0 && (grid[i][j-1] > minDis || minDis == 0) { //左
+				minDis = grid[i][j-1]
+			}
+			grid[i][j] = minDis + grid[i][j]
+		}
+	}
+	//fmt.Println(grid,grid[row-1][col-1])
+	return grid[row-1][col-1]
+}

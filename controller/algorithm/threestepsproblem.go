@@ -47,7 +47,7 @@ func waysToStep(n int) int {
 	return val[n]
 }
 
-//爬梯子 https://leetcode-cn.com/problems/climbing-stairs/
+//例题2 爬梯子 https://leetcode-cn.com/problems/climbing-stairs/
 func climbStairs(n int) int {
 	if n == 0 {
 		return 0
