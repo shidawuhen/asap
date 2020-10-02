@@ -46,3 +46,24 @@ func waysToStep(n int) int {
 	}
 	return val[n]
 }
+
+//爬梯子 https://leetcode-cn.com/problems/climbing-stairs/
+func climbStairs(n int) int {
+	if n == 0 {
+		return 0
+	}
+	if n == 1 {
+		return 1
+	}
+	if n == 2 {
+		return 2
+	}
+
+	val := make([]int, n+1)
+	val[1] = 1
+	val[2] = 2
+	for i := 3; i <= n; i++ {
+		val[i] = val[i-1] + val[i-2]
+	}
+	return val[n]
+}
