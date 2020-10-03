@@ -9,8 +9,9 @@ import (
 )
 
 func main() {
-	nums := []int{7,6,4,3,1}
-	algorithm.MaxProfit(nums)
+	//nums := []int{7,6,4,3,1}"pmjghexybyrgzczy"
+	//"hafcdqbgncrcbihkd"
+	algorithm.LongestCommonSubsequence("abcba","abcbcba")
 	r := gin.Default()
 	InitRedis()
 	router.InitRouter(r)
