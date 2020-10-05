@@ -9,8 +9,8 @@ import (
 )
 
 func main() {
-	nums := []int{1, 0, -1, 0, -2, 2}
-	algorithm.FourSum(nums,0)
+	//nums := []int{1, 0, -1, 0, -2, 2}
+	algorithm.LengthOfLongestSubstring("pwwkew")
 	r := gin.Default()
 	InitRedis()
 	router.InitRouter(r)
