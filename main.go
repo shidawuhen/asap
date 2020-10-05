@@ -9,9 +9,8 @@ import (
 )
 
 func main() {
-	//nums := []int{7,6,4,3,1}"pmjghexybyrgzczy"
-	//"hafcdqbgncrcbihkd"
-	algorithm.LongestCommonSubsequence("abcba","abcbcba")
+	nums := []int{1, 0, -1, 0, -2, 2}
+	algorithm.FourSum(nums,0)
 	r := gin.Default()
 	InitRedis()
 	router.InitRouter(r)
