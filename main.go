@@ -9,8 +9,9 @@ import (
 )
 
 func main() {
-	//nums := []int{1, 0, -1, 0, -2, 2}
-	algorithm.LengthOfLongestSubstring("pwwkew")
+	nums1 := []int{2}
+	nums2 := []int{}
+	algorithm.FindMedianSortedArrays(nums1,nums2)
 	r := gin.Default()
 	InitRedis()
 	router.InitRouter(r)
