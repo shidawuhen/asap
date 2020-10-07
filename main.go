@@ -10,8 +10,11 @@ import (
 
 func main() {
 	//nums := []int{2}
-	edges := [][]int{{0,1},{0,2},{2,3},{2,4},{2,5}}
-	algorithm.SumOfDistancesInTree(6,edges)
+	//edges := [][]int{{0,1},{0,2},{2,3},{2,4},{2,5}}
+	speed := []int{9,9,8,5}
+	efficiency := []int{9,2,1,6}
+	k := 3
+	algorithm.MaxPerformance(4,speed,efficiency,k)
 	r := gin.Default()
 	InitRedis()
 	router.InitRouter(r)
