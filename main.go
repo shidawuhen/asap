@@ -9,9 +9,9 @@ import (
 )
 
 func main() {
-	nums1 := []int{2}
-	nums2 := []int{}
-	algorithm.FindMedianSortedArrays(nums1,nums2)
+	//nums := []int{2}
+	edges := [][]int{{0,1},{0,2},{2,3},{2,4},{2,5}}
+	algorithm.SumOfDistancesInTree(6,edges)
 	r := gin.Default()
 	InitRedis()
 	router.InitRouter(r)
