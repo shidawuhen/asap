@@ -76,3 +76,63 @@ func SumOfDistancesInTree(N int, edges [][]int) []int {
 	fmt.Println(res)
 	return res
 }
+
+/*
+func distance(parentIndex int, startIndex int, endIndex int, linkMap map[int][]int, disMap[][]int16, sum int) int {
+	list, _ := linkMap[startIndex]
+	for i := 0; i < len(list); i++ {
+		if list[i] != parentIndex {
+			if list[i] == endIndex {
+				return sum + 1
+			} else {
+				dis := distance(startIndex, list[i], endIndex, linkMap, disMap, sum+1)
+				if dis != 0 {
+					if disMap[list[i]][endIndex] == 0 {
+						disMap[list[i]][endIndex], disMap[endIndex][list[i]] = int16(dis),int16(dis)
+					}
+					return dis
+				}
+			}
+		}
+	}
+	return 0
+}
+
+func SumOfDistancesInTree(N int, edges [][]int) []int {
+	res := make([]int, N)
+
+	disMap := make([][]int16, N)
+	for i := 0; i < N; i++ {
+		disMap[i] = make([]int16, N)
+	}
+	for i := 0; i < len(edges); i++ {
+		disMap[edges[i][0]][edges[i][1]], disMap[edges[i][1]][edges[i][0]] = 1, 1
+	}
+	//linkMap用于计算连接关系
+	linkMap := make(map[int][]int)
+	for i := 0; i < len(edges); i++ {
+		linkMap[edges[i][0]] = append(linkMap[edges[i][0]], edges[i][1])
+		linkMap[edges[i][1]] = append(linkMap[edges[i][1]], edges[i][0])
+	}
+	for i := 0; i < N; i++ {
+		for j := 0; j < N; j++ {
+			if i != j && disMap[i][j] == 0 {
+				sum := distance(-1, i, j, linkMap, disMap,0)
+				if disMap[i][j] == 0 {
+					disMap[i][j],disMap[j][i] = int16(sum),int16(sum)
+				}
+
+			}
+		}
+	}
+	for i := 0; i < N; i++{
+		var resSum int16 = 0
+		for j := 0; j < N; j++{
+			resSum += disMap[i][j]
+		}
+		res[i] = int(resSum)
+	}
+	fmt.Println(disMap,res)
+	return res
+}
+*/
