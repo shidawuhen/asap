@@ -10,8 +10,8 @@ import (
 
 func main() {
 	//nums := {}int{2}
-	reservedSeats := [][]int{{2,1},{1,8},{2,6}}
-	algorithm.MaxNumberOfFamilies(5,reservedSeats)
+	tasks := []byte{'A','A','A','B','B','B'}
+	algorithm.LeastInterval(tasks,2)
 	r := gin.Default()
 	InitRedis()
 	router.InitRouter(r)
