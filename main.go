@@ -9,9 +9,9 @@ import (
 )
 
 func main() {
-	//nums := {}int{2}
-	tasks := []byte{'A','A','A','B','B','B'}
-	algorithm.LeastInterval(tasks,2)
+	nums := []int{100, 100, 100, 100,100,100}
+
+	algorithm.CanPartition(nums)
 	r := gin.Default()
 	InitRedis()
 	router.InitRouter(r)
