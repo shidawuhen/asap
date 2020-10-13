@@ -9,9 +9,9 @@ import (
 )
 
 func main() {
-	nums := []int{100, 100, 100, 100,100,100}
+	//nums := []int{100, 100, 100, 100,100,100}
 
-	algorithm.CanPartition(nums)
+	algorithm.SolveNQueens(4)
 	r := gin.Default()
 	InitRedis()
 	router.InitRouter(r)
