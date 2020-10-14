@@ -27,7 +27,7 @@ import "fmt"
 解释：另一种有效的行程是 ["JFK","SFO","ATL","JFK","ATL","SFO"]。但是它自然排序更大更靠后。
 */
 
-//方法1：超时
+//方法1：超时.之所以超时，是因为没有对tickets进行map映射，导致遍历次数增多。不过不想改了，方法2是比较好的方法，大家可以看一下
 var routes []string
 var largerS string
 
