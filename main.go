@@ -9,9 +9,9 @@ import (
 )
 
 func main() {
-	//nums := []int{100, 100, 100, 100,100,100}
-
-	algorithm.SolveNQueens(4)
+	//nums := [][]string{{"MUC","LHR"},{"JFK","MUC"},{"SFO","SJC"},{"LHR","SFO"}}
+	nums := [][]string{{"JFK","SFO"},{"JFK","ATL"},{"SFO","ATL"},{"ATL","JFK"},{"ATL","SFO"}}
+	algorithm.FindItinerary(nums)
 	r := gin.Default()
 	InitRedis()
 	router.InitRouter(r)
