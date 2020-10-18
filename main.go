@@ -10,8 +10,10 @@ import (
 
 func main() {
 	//nums := [][]string{{"MUC","LHR"},{"JFK","MUC"},{"SFO","SJC"},{"LHR","SFO"}}
-	nums := [][]string{{"JFK","SFO"},{"JFK","ATL"},{"SFO","ATL"},{"ATL","JFK"},{"ATL","SFO"}}
-	algorithm.FindItinerary(nums)
+	//nums := [][]int{{1, 2, 7}, {3, 6, 7}}
+	//nums := [][]int{{7,12},{4,5,15},{6},{15,19},{9,12,13}}
+	nums := [][]int{{2, 8}, {2}}
+	algorithm.NumBusesToDestination(nums,8,2)
 	r := gin.Default()
 	InitRedis()
 	router.InitRouter(r)
