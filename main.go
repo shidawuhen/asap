@@ -2,11 +2,11 @@ package main
 
 import (
 	"asap/aredis"
+	"asap/controller/algorithm"
 	_ "asap/docs"
 	"asap/router"
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"asap/controller/algorithm"
 	"asap/global"
 )
 
@@ -15,25 +15,27 @@ const (
 	TEAM =  "i18n"
 )
 
-
 func main() {
-	nums := []int{1,2,3,4}
-	algorithm.Exchange(nums)
+	//nums := [][]string{{"MUC","LHR"},{"JFK","MUC"},{"SFO","SJC"},{"LHR","SFO"}}
+	//nums := [][]int{{1, 2, 7}, {3, 6, 7}}
+	//nums := [][]int{{7,12},{4,5,15},{6},{15,19},{9,12,13}}
+	nums := [][]int{{2, 8}, {2}}
+	algorithm.NumBusesToDestination(nums,8,2)
+	r := gin.Default()
 	InitRedis()
 	serviceName := "/"+GROUP+ "/" + TEAM + "/"
 	global.GetServiceFromEtcd(serviceName)
 	go global.WatchServiceFromEtcd(serviceName)
 	fmt.Println(2)
-	r := gin.Default()
 	router.InitRouter(r)
 	// Listen and Server in 0.0.0.0:8082
 	r.Run(":8082")
 }
 
 
-func InitRedis(){
+func InitRedis() {
 	myRedis := newRedisManager(aredis.BASEREDIS)
-	aredis.SetRedis(aredis.BASEREDIS,myRedis)
+	aredis.SetRedis(aredis.BASEREDIS, myRedis)
 }
 
 func newRedisManager(servicename string) (redis *aredis.RedisManager) {
