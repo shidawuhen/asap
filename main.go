@@ -5,13 +5,15 @@ import (
 	"asap/controller/algorithm"
 	_ "asap/docs"
 	"asap/router"
+	"fmt"
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
 	//nums := []int{2,1,4,7,3,2,5,6,7,8,9,10,9,8,7,7,8}
-	nums := []int{2,2,2}
-	algorithm.LongestMountain(nums)
+	nums := [][]byte{{'a'}}
+	res := algorithm.Exist(nums,"a")
+	fmt.Println(res)
 	r := gin.Default()
 	InitRedis()
 	router.InitRouter(r)
