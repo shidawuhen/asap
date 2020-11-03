@@ -11,8 +11,8 @@ import (
 
 func main() {
 	//nums := []int{2,1,4,7,3,2,5,6,7,8,9,10,9,8,7,7,8}
-	nums := [][]byte{{'a'}}
-	res := algorithm.Exist(nums,"a")
+	//nums := [][]byte{{'a'}}
+	res := algorithm.CuttingRope2(120)
 	fmt.Println(res)
 	r := gin.Default()
 	InitRedis()
