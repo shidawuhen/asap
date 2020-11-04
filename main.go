@@ -12,7 +12,7 @@ import (
 func main() {
 	//nums := []int{2,1,4,7,3,2,5,6,7,8,9,10,9,8,7,7,8}
 	//nums := [][]byte{{'a'}}
-	res := algorithm.Convert("LEETCODEISHIRING",4)
+	res := algorithm.HammingWeight(9)
 	fmt.Println(res)
 	r := gin.Default()
 	InitRedis()
