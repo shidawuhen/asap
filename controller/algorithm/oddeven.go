@@ -102,3 +102,33 @@ func ExchangeSimple(nums []int) []int {
 	}
 	return res
 }
+
+//算法三：快排
+func ExchangeQuickSort(nums []int) []int {
+	length := len(nums)
+	if length == 0 {
+		return nums
+	}
+	//快排
+	i := 0
+	j := length - 1
+	for i < j {
+		for i < j && nums[i]%2 != 0 {
+			i++
+		}
+		if i < j {
+			nums[i], nums[j] = nums[j], nums[i]
+			j--
+		}
+
+		for i < j && nums[j]%2 == 0 {
+			j--
+		}
+		if i < j {
+			nums[i], nums[j] = nums[j], nums[i]
+			i++
+		}
+
+	}
+	return nums
+}
