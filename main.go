@@ -10,9 +10,9 @@ import (
 )
 
 func main() {
-	//nums := []int{2,1,4,7,3,2,5,6,7,8,9,10,9,8,7,7,8}
+	nums := []int{3,2,1,4,5,0}
 	//nums := [][]byte{{'a'}}
-	res := algorithm.IsMatch("aasdfasdfasdfasdfas","aasdf.*asdf.*asdf.*asdf.*s")
+	res := algorithm.GetLeastNumbers(nums,2)
 	fmt.Println(res)
 	r := gin.Default()
 	InitRedis()

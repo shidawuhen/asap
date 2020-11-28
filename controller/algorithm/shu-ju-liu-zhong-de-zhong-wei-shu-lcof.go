@@ -42,7 +42,7 @@ type MedianFinder struct {
 }
 
 /** initialize your data structure here. */
-func Constructor() MedianFinder {
+func ConstructorMedian() MedianFinder {
 	return MedianFinder{
 		nums: make([]int, 0),
 	}

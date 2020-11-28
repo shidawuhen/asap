@@ -32,7 +32,7 @@ type CQueue struct {
 	backup []int
 }
 
-func Constructor() CQueue {
+func ConstructorQueue() CQueue {
 	return CQueue{
 		real:   make([]int, 0),
 		backup: make([]int, 0),
