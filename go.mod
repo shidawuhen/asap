@@ -4,6 +4,7 @@ go 1.12
 
 require (
 	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751
+	github.com/andres-erbsen/clock v0.0.0-20160526145045-9e14626cd129
 	github.com/astaxie/beego v1.12.0
 	github.com/garyburd/redigo v1.6.0
 	github.com/gin-gonic/gin v1.5.0

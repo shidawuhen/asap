@@ -18,7 +18,6 @@ type TokenBucket struct {
 	capacity     int64 //桶的容量
 	tokens       int64 //桶中当前token数量
 	lastTokenSec int64 //桶上次放token的时间戳 s
-
 	lock sync.Mutex
 }
 

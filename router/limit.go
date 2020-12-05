@@ -10,6 +10,8 @@ func limitFunc(router *gin.Engine) {
 	router.GET("/limit/countreject",  limit.CountReject)
 	router.GET("/limit/slidewindowsreject",  limit.SlideWindowsReject)
 	router.GET("/limit/tokenreject",  limit.TokenReject)
+	router.GET("/limit/leakyreject",  limit.LeakyReject)
+	router.GET("/limit/leakyrejectfixedrate",limit.LeakyRejectFixedRate)
 }
 
 
