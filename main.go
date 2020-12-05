@@ -21,6 +21,8 @@ func main() {
 	r.Run(":8082")
 }
 
+
+
 func InitRedis() {
 	myRedis := newRedisManager(aredis.BASEREDIS)
 	aredis.SetRedis(aredis.BASEREDIS, myRedis)
