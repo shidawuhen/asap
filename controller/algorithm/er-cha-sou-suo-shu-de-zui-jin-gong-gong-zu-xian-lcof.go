@@ -60,9 +60,3 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 	return root
 }
 
-func isFather(root, p, q *TreeNode) bool {
-	if root == nil {
-		return false
-	}
-
-}
