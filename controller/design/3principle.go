@@ -166,6 +166,8 @@ func (timeOutAlertHandler *TimeOutAlertHandler) Check(apiStatInfo ApiStatInfo) b
 	return true
 }
 
+
+
 func mainprinciple() {
 	alert := CreateAlert(new(AlertRules), new(Notification))
 	alert.Check("test", 20, 20)
