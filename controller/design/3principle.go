@@ -1,4 +1,4 @@
-package design
+package main
 
 import "fmt"
 
@@ -166,9 +166,125 @@ func (timeOutAlertHandler *TimeOutAlertHandler) Check(apiStatInfo ApiStatInfo) b
 	return true
 }
 
+//里氏替换原则
+type Notify interface {
+	Send()
+}
+type Message struct {
+}
 
+func (message *Message) Send() {
+	fmt.Println("message send")
+}
 
-func mainprinciple() {
+type SMS struct {
+}
+
+func (sms *SMS) Send() {
+	fmt.Println("sms send")
+}
+
+func LetDo(notify *Message) {
+	notify.Send()
+}
+
+//接口隔离原则
+type Updater interface {
+	Update() bool
+}
+
+type Shower interface {
+	Show() string
+}
+
+type RedisConfig struct {
+}
+
+func (redisConfig *RedisConfig) Connect() {
+	fmt.Println("I am Redis")
+}
+
+func (redisConfig *RedisConfig) Update() bool {
+	fmt.Println("Redis Update")
+	return true
+}
+
+func (redisConfig *RedisConfig) Show() string {
+	fmt.Println("Redis Show")
+	return "Redis Show"
+}
+
+type MySQLConfig struct {
+}
+
+func (mySQLConfig *MySQLConfig) Connect() {
+	fmt.Println("I am MySQL")
+}
+
+func (mySQLConfig *MySQLConfig) Show() string {
+	fmt.Println("MySQL Show")
+	return "MySQL Show"
+}
+
+type KafkaConfig struct {
+}
+
+func (kafkaConfig *KafkaConfig) Connect() {
+	fmt.Println("I am Kafka")
+}
+
+func (kafkaConfig *KafkaConfig) Update() bool {
+	fmt.Println("Kafka Update")
+	return true
+}
+
+func ScheduleUpdater(updater Updater) bool {
+	return updater.Update()
+}
+func ServerShow(shower Shower) string {
+	return shower.Show()
+}
+
+//迪米特法则
+type Transporter interface {
+	Send(address string, data string) bool
+}
+type NetworkTransporter struct {
+}
+
+func (networkTransporter *NetworkTransporter) Send(address string, data string) bool {
+	fmt.Println("NetworkTransporter Send")
+	return true
+}
+
+type HtmlDownloader struct {
+	transPorter Transporter
+}
+
+func CreateHtmlDownloader(t Transporter) *HtmlDownloader {
+	return &HtmlDownloader{transPorter: t}
+}
+
+func (htmlDownloader *HtmlDownloader) DownloadHtml() string {
+	htmlDownloader.transPorter.Send("123", "test")
+	return "htmDownloader"
+}
+
+type Document struct {
+	html string
+}
+
+func (document *Document) SetHtml(html string) {
+	document.html = html
+}
+
+func (document *Document) Analyse() {
+	fmt.Println("document analyse " + document.html)
+}
+
+func mainpriciple() {
+	//开闭原则
+	fmt.Println("开闭原则")
 	alert := CreateAlert(new(AlertRules), new(Notification))
 	alert.Check("test", 20, 20)
 	//版本2，alert其实已经不需要有成员变量AlertRules和Notification了
@@ -184,4 +300,20 @@ func mainprinciple() {
 		tps:          20,
 	}
 	alert.CheckNew(apiStatInfo)
+	//里氏替换原则
+	fmt.Println("里式替换原则")
+	LetDo(new(Message))
+	//接口隔离原则
+	fmt.Println("接口隔离原则")
+	ScheduleUpdater(new(RedisConfig))
+	ScheduleUpdater(new(KafkaConfig))
+	ServerShow(new(RedisConfig))
+	ServerShow(new(MySQLConfig))
+	//迪米特法则
+	fmt.Println("迪米特法则")
+	htmlDownloader := CreateHtmlDownloader(new(NetworkTransporter))
+	html := htmlDownloader.DownloadHtml()
+	doc := new(Document)
+	doc.SetHtml(html)
+	doc.Analyse()
 }
