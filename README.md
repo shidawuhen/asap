@@ -2,7 +2,7 @@
 ## 功能模块controller
 ### algorithm
 该模块记录了leetcode上刷的题目，有一百多个，可配合算法篇一起查看 
-1.[算法总结](https://mp.weixin.qq.com/s/pg94QcxIttHUBlGnHBW4zQ)
+1. [算法总结](https://mp.weixin.qq.com/s/pg94QcxIttHUBlGnHBW4zQ)
 ### design
 该模块记录了设计模式学习内容，可配合如下文章查看
 1. [Go设计模式(1)-语法](https://mp.weixin.qq.com/s/ZiobMMJ8HjdEnd5CVbo_bw)
