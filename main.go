@@ -3,6 +3,7 @@ package main
 import (
 	"asap/aredis"
 	"asap/controller/algorithm"
+	"asap/controller/design"
 	_ "asap/docs"
 	"asap/router"
 	"fmt"
@@ -10,6 +11,8 @@ import (
 )
 
 func main() {
+	single := design.GetSingleInstance()
+	single.Show()
 	nums := []int{3,2,1,4,5,0}
 	//nums := [][]byte{{'a'}}
 	res := algorithm.GetLeastNumbers(nums,2)

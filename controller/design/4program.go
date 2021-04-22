@@ -1,5 +1,9 @@
 package design
-`
+
+import "fmt"
+
+func testProgram() {
+	t := `
 <?php
 //工具类
 class Utils {
@@ -423,3 +427,6 @@ function main() {
 }
 main();
 `
+	fmt.Println(t)
+	return
+}
