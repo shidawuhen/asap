@@ -7,24 +7,24 @@ import (
 	_ "asap/docs"
 	"asap/router"
 	"fmt"
+	"github.com/gin-contrib/pprof"
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
 	single := design.GetSingleInstance()
 	single.Show()
-	nums := []int{3,2,1,4,5,0}
+	nums := []int{3, 2, 1, 4, 5, 0}
 	//nums := [][]byte{{'a'}}
-	res := algorithm.GetLeastNumbers(nums,2)
+	res := algorithm.GetLeastNumbers(nums, 2)
 	fmt.Println(res)
 	r := gin.Default()
+	pprof.Register(r)
 	InitRedis()
 	router.InitRouter(r)
 	// Listen and Server in 0.0.0.0:8080
 	r.Run(":8082")
 }
-
-
 
 func InitRedis() {
 	myRedis := newRedisManager(aredis.BASEREDIS)

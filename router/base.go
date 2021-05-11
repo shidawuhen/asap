@@ -1,10 +1,10 @@
 package router
 
 import (
+	"asap/controller/base"
 	"github.com/gin-gonic/gin"
 	ginSwagger "github.com/swaggo/gin-swagger"
 	"github.com/swaggo/gin-swagger/swaggerFiles"
-	"asap/controller/base"
 )
 
 func baseFunc(router *gin.Engine) {
@@ -15,4 +15,3 @@ func baseFunc(router *gin.Engine) {
 	// http://127.0.0.1:8080/swagger/index.html
 	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 }
-
