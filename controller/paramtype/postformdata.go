@@ -9,12 +9,20 @@ import (
 	"net/http"
 )
 
+type PostFormStruct struct {
+	GetPostForm string `json:"getPostForm" uri:"getPostForm" form:"getPostForm"`
+}
+
 /**
  * @Author: POST form数据获取
  * @Description:
  * @param c
  */
 func PostFormData(c *gin.Context) {
+	//需定义合规结构体
+	postFormStruct := &PostFormStruct{}
+	c.ShouldBind(postFormStruct)
+	fmt.Printf("%+v \n", postFormStruct)
 
 	postForm := c.PostForm("postForm")
 	fmt.Println(postForm)

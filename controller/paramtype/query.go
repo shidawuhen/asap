@@ -14,6 +14,10 @@ import (
  * @param c
  */
 func Query(c *gin.Context) {
+	//需定义合规结构体
+	rawQuery := &RawQuery{}
+	c.ShouldBindQuery(rawQuery)
+	fmt.Printf("%+v \n", rawQuery)
 
 	param := c.Param("param")
 	fmt.Println(param)
