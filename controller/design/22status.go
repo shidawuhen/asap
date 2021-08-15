@@ -12,6 +12,41 @@ type Mario struct {
 	status MarioStatus
 }
 
+/**
+ * @Author: Jason Pang
+ * @Description: 展示信息和分数
+ * @receiver m
+ */
+func (m *Mario) ShowInfo() {
+	m.status.Name()
+	fmt.Println("当前分数为:", m.score)
+}
+
+/**
+ * @Author: Jason Pang
+ * @Description: 创建备忘录
+ * @receiver m
+ */
+func (m *Mario) CreateMemento() *Memento {
+	return &Memento{
+		mario: &Mario{
+			score:  m.score,
+			status: m.status,
+		},
+	}
+}
+
+/**
+ * @Author: Jason Pang
+ * @Description: 恢复数据
+ * @receiver m
+ * @param mem
+ */
+func (m *Mario) SetMemento(mem *Memento) {
+	m.score = mem.mario.score
+	m.status = mem.mario.status
+}
+
 type MarioStatus interface {
 	Name()
 	ObtainMushroom()
