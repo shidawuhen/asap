@@ -66,8 +66,10 @@ brew install redis
 打开 redis.conf 文件，然后按 command + f 进行搜索：#requirepass foobared
 修改为：
 requirepass 你的密码
-启动：
+服务端启动：
 /usr/local/bin/redis-server /usr/local/etc/redis.conf
+命令行登录：
+redis-cli -p 6379 -a auth
 
 
 ## 我的博客-程序员麻辣烫的博客
