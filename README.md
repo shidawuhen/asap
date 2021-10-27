@@ -45,6 +45,19 @@
 该模块记录了常用的限流算法，可配合如下文章查看
 1. [限流实现1](https://mp.weixin.qq.com/s/hG6QrPPTHjqEaUVQhjDdBg)
 2. [限流实现2](https://mp.weixin.qq.com/s/kvkDfCfFjbessU8UAN1O-g)
+### status
+状态机
+### algorithm
+系统整理了算法相关内容
+1. [算法学习计划](https://mp.weixin.qq.com/s/v1wbqN_GVmGosWlY0JlHPw)
+2. [蛮力法](https://mp.weixin.qq.com/s/4dfRrGUcojEK_fvhZ2g_Dg)
+3. [分治法](https://mp.weixin.qq.com/s/x7L_cRSTgiFnYamQmI0ydQ)
+4. [减治法](https://mp.weixin.qq.com/s/AoANPDzxV_CAnbWO-M1xuA)
+5. [动态规划法](https://mp.weixin.qq.com/s/0KXamBMoZygJzLXklat_LA)
+6. [贪心法](https://mp.weixin.qq.com/s/9f0j0EQPF5cOJhSU0KwFRA)
+7. [回溯法](https://mp.weixin.qq.com/s/p62Sc63CoLmM1sirBYU_Tw)
+8. [分支限界法](https://mp.weixin.qq.com/s/-zcn9hTwEaPshpFLkP8zlg)
+9. [算法总结](https://mp.weixin.qq.com/s/pg94QcxIttHUBlGnHBW4zQ)
 
 
 ## 配置
