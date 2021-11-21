@@ -12,8 +12,9 @@ require (
 	github.com/golang/protobuf v1.5.2
 	github.com/onsi/ginkgo v1.16.5 // indirect
 	github.com/onsi/gomega v1.16.0 // indirect
-	github.com/stretchr/testify v1.6.1
+	github.com/stretchr/testify v1.7.0
 	github.com/swaggo/gin-swagger v1.3.0
 	github.com/swaggo/swag v1.7.0
-	google.golang.org/grpc v1.36.0
+	github.com/yedf/dtm v1.5.4
+	google.golang.org/grpc v1.39.1
 )
