@@ -9,4 +9,5 @@ func InitRouter(router *gin.Engine) {
 	limitFunc(router)
 	grpcFunc(router)
 	paramTypeFunc(router)
+	variousFunc(router)
 }
