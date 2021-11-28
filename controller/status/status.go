@@ -1,6 +1,6 @@
 /**
 @author: Jason Pang
-@desc:
+@desc: 状态机
 @date: 2021/10/24
 **/
 package status
