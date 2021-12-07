@@ -6,5 +6,3 @@
 package various
 
 //测试git revert 1
-
-//测试git revert 2 该记录错误要revert掉
