@@ -83,7 +83,6 @@ func newdspValidBST(node *TreeNode, dir string) (res bool, val int) {
 	if node.Right != nil {
 		rIsVal, rV = newdspValidBST(node.Right, "r")
 	}
-	fmt.Println(node.Val, lIsVal, lV, rIsVal, rV)
 	//如果有一个不合格，都不合格
 	if lIsVal == false || rIsVal == false {
 		return false, 0
@@ -133,4 +132,29 @@ func dspVal(node *TreeNode) {
 	dspVal(node.Left)
 	bstVal = append(bstVal, node.Val)
 	dspVal(node.Right)
+}
+
+//中序遍历优化，判断是否递增
+func isValidBSTOpt(root *TreeNode) bool {
+	bstVal = make([]int, 0)
+	return dspValOpt(root)
+}
+
+func dspValOpt(node *TreeNode) bool {
+	if node == nil {
+		return true
+	}
+	res := dspValOpt(node.Left)
+	if res == false {
+		return false
+	}
+	if len(bstVal) > 0 && node.Val <= bstVal[len(bstVal)-1] {
+		return false
+	}
+	bstVal = append(bstVal, node.Val)
+	res = dspValOpt(node.Right)
+	if res == false {
+		return false
+	}
+	return true
 }
