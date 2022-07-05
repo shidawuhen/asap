@@ -29,6 +29,13 @@ func DefaultShopWareHouseRepo() *ShopWareHouseRepo {
 	return defaultRepo
 }
 
+/**
+ * @Author: Jason Pang
+ * @Description: 获取商家仓信息
+ * @receiver s
+ * @param id
+ * @return *model.ShopWareHouse
+ */
 func (s *ShopWareHouseRepo) GetShopWareHouse(id int64) *model.ShopWareHouse {
 	return &model.ShopWareHouse{
 		Id:            1,
@@ -37,4 +44,15 @@ func (s *ShopWareHouseRepo) GetShopWareHouse(id int64) *model.ShopWareHouse {
 		Name:          "商家仓1",
 		SpWareHouseId: 2,
 	}
+}
+
+/**
+ * @Author: Jason Pang
+ * @Description: 创建商家仓
+ * @receiver s
+ * @param info
+ * @return bool
+ */
+func (s *ShopWareHouseRepo) CreateShopWareHouse(info *model.ShopWareHouse) bool {
+	return true
 }

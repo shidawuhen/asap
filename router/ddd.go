@@ -12,5 +12,5 @@ import (
 
 func dddFunc(router *gin.Engine) {
 	router.GET("/nddd/getwarehouse", handler.GetWareHouse)
-
+	router.GET("/nddd/createwarehouse", handler.CreatWareHouse)
 }
