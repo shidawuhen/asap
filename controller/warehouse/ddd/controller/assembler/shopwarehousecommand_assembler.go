@@ -31,7 +31,7 @@ func (a *Assembler) ToCommandFromCreateDTO(dto dto.ShopWarehouseCreateDTO) *comm
 
 func (a *Assembler) ToCommandFromUpdateStatusDTO(dto dto.ShopWarehouseUpdateStatusDTO) *command.ShopWarehouseUpdateStatusCommand {
 	return &command.ShopWarehouseUpdateStatusCommand{
-		WarehouseId: *valueobject.NewWarehouseId(dto.ShopWarehouseId),
+		WarehouseId: valueobject.NewWarehouseId(dto.ShopWarehouseId),
 		Status:      dto.Status,
 	}
 }

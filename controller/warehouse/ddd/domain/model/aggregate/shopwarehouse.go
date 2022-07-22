@@ -36,12 +36,11 @@ func (s *ShopWarehouse) Create(command *command.ShopWarehouseCreateCommand) *Sho
 	}
 }
 
-func (s *ShopWarehouse) UpdateStatus(command *command.ShopWarehouseUpdateStatusCommand) *ShopWarehouse {
+func (s *ShopWarehouse) UpdateStatus(command *command.ShopWarehouseUpdateStatusCommand, shopWare *ShopWarehouse) *ShopWarehouse {
 	//此处是核心逻辑，判断更新的标准
-	if command.ShopWarehouse.Status != command.Status {
+	if shopWare.Status != command.Status {
 		return nil
 	}
-	shopWare := command.ShopWarehouse
 	shopWare.Status = command.Status
-	return &shopWare
+	return shopWare
 }

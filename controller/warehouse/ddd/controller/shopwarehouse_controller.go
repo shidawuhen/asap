@@ -41,6 +41,6 @@ func (s *shopWarehouseController) Create(dto dto.ShopWarehouseCreateDTO) (err er
 func (s *shopWarehouseController) UpdateStatus(dto dto.ShopWarehouseUpdateStatusDTO) (err error) {
 	assembler := assembler.NewAssembler()
 	command := assembler.ToCommandFromUpdateStatusDTO(dto)
-	fmt.Println("更新状态")
+	fmt.Println("更新")
 	return s.commandService.UpdateStatus(command)
 }

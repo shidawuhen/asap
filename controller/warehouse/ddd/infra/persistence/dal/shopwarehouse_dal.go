@@ -28,6 +28,7 @@ func (dal *ShopWarehouseDal) Find(id int64) *po.ShopWareHouse {
 	return &po.ShopWareHouse{
 		Id:              id,
 		WarehouseId:     1,
+		Status:          1,
 		Code:            "商家仓仓",
 		Name:            "我是商家仓",
 		SpWareHouseId:   1,

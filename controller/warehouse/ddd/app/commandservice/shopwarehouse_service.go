@@ -12,6 +12,7 @@ import (
 	"asap/controller/warehouse/ddd/domain/repo"
 	"asap/controller/warehouse/ddd/integration/acl"
 	"context"
+	"errors"
 )
 
 type ShopWarehouseApplicationService struct {
@@ -54,10 +55,12 @@ func (s *ShopWarehouseApplicationService) Create(command *command.ShopWarehouseC
 func (s *ShopWarehouseApplicationService) UpdateStatus(command *command.ShopWarehouseUpdateStatusCommand) error {
 	//1.从数据库获取商家仓信息
 	shopWareInfo, _ := s.ShopWarehouseRepo.Find(s.ctx, command.WarehouseId.Get())
-	command.ShopWarehouse = *shopWareInfo
 	//2.调用聚合更新状态
 	shopWarehouseAggregate := aggregate.ShopWarehouse{}
-	shopWarehouse := shopWarehouseAggregate.UpdateStatus(command)
+	shopWarehouse := shopWarehouseAggregate.UpdateStatus(command, shopWareInfo)
+	if shopWarehouse == nil {
+		return errors.New("更新失败")
+	}
 	//3.存储
 	s.ShopWarehouseRepo.Save(s.ctx, shopWarehouse)
 	return nil
