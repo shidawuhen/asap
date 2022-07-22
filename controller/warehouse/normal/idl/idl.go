@@ -13,4 +13,5 @@ type ShopWareHouseInfo struct {
 	SpWareHouseId int64  `json:"scsp_warehouse_id"`
 	SpCode        string `json:"sp_code"`
 	SpName        string `json:"sp_name"`
+	Status        int64  `json:"status"`
 }

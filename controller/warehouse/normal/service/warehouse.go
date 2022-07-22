@@ -44,6 +44,7 @@ func (s *shopWarehouseService) PackageShopWareHouseData(shopWareHouse *model.Sho
 		SpWareHouseId: spWareHouse.Id,
 		SpCode:        spWareHouse.Code,
 		SpName:        spWareHouse.Name,
+		Status:        shopWareHouse.Status,
 	}
 }
 
@@ -63,6 +64,7 @@ func (s *shopWarehouseService) CreateShopWareHouse() bool {
 		Code:          "商家仓2",
 		Name:          "商家仓2",
 		SpWareHouseId: 2,
+		Status:        0, //init
 	}
 	//插入数据库
 	shopWareHouseRepo := db.DefaultShopWareHouseRepo()

@@ -15,6 +15,7 @@ type ShopWareHouse struct {
 	Code          string `gorm:"code" json:"code"`
 	Name          string `gorm:"name" json:"name"`
 	SpWareHouseId int64  `gorm:"column:scsp_warehouse_id" json:"scsp_warehouse_id"`
+	Status        int64  `gorm:"status" json:"status"`
 }
 
 /**
