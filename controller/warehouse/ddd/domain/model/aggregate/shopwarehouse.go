@@ -12,7 +12,7 @@ import (
 )
 
 type ShopWarehouse struct {
-	WarehouseId int64
+	WarehouseId valueobject.WarehouseId
 	Code        string
 	Name        string
 	Status      int64
@@ -36,6 +36,12 @@ func (s *ShopWarehouse) Create(command *command.ShopWarehouseCreateCommand) *Sho
 	}
 }
 
-func (s *ShopWarehouse) Update() {
-
+func (s *ShopWarehouse) UpdateStatus(command *command.ShopWarehouseUpdateStatusCommand) *ShopWarehouse {
+	//此处是核心逻辑，判断更新的标准
+	if command.ShopWarehouse.Status != command.Status {
+		return nil
+	}
+	shopWare := command.ShopWarehouse
+	shopWare.Status = command.Status
+	return &shopWare
 }

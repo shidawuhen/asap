@@ -8,9 +8,11 @@ package controller
 import (
 	"asap/controller/warehouse/ddd/app/commandservice"
 	"asap/controller/warehouse/ddd/controller/assembler"
-	"asap/controller/warehouse/ddd/controller/querydto"
+	"asap/controller/warehouse/ddd/controller/dto"
 	"asap/controller/warehouse/ddd/infra/persistence"
+	"asap/controller/warehouse/ddd/integration/acl"
 	"context"
+	"fmt"
 )
 
 type shopWarehouseController struct {
@@ -24,10 +26,21 @@ func NewShopWarehouseController(ctx context.Context) *shopWarehouseController {
 		commandService: commandservice.NewShopWarehouseApplicationService(
 			ctx,
 			persistence.NewShopWarehouseRepository(),
-			persistence.NewSpWarehouseRepository()),
+			persistence.NewSpWarehouseRepository(),
+			acl.NewWarehouseAcl(),
+		),
 	}
 }
-func (s *shopWarehouseController) Create(dto querydto.ShopWarehouseCreateDTO) (err error) {
-	command := assembler.Assembler{}.ToCommandFromDTO(dto)
+func (s *shopWarehouseController) Create(dto dto.ShopWarehouseCreateDTO) (err error) {
+	assembler := assembler.NewAssembler()
+	command := assembler.ToCommandFromCreateDTO(dto)
+	fmt.Println("创建")
 	return s.commandService.Create(command)
+}
+
+func (s *shopWarehouseController) UpdateStatus(dto dto.ShopWarehouseUpdateStatusDTO) (err error) {
+	assembler := assembler.NewAssembler()
+	command := assembler.ToCommandFromUpdateStatusDTO(dto)
+	fmt.Println("更新状态")
+	return s.commandService.UpdateStatus(command)
 }
