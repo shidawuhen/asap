@@ -29,5 +29,8 @@ func Ping(c *gin.Context) {
 		SpWarehouseId: 1,
 	}
 	controller.Create(createDto)
+
+	controller.GetShopWarehouse(1)
 	c.String(http.StatusOK, "ok")
+
 }
