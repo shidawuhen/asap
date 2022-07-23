@@ -1,6 +1,9 @@
 package base
 
 import (
+	"asap/controller/warehouse/ddd/controller"
+	"asap/controller/warehouse/ddd/controller/dto"
+	"context"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -13,5 +16,21 @@ import (
 // @Success 200 {string} string "ok"
 // @Router /ping [get]
 func Ping(c *gin.Context) {
+	controller := controller.NewShopWarehouseController(context.Background())
+	updateDto := dto.ShopWarehouseUpdateStatusDTO{
+		ShopWarehouseId: 1,
+		Status:          1,
+	}
+	controller.UpdateStatus(updateDto)
+
+	createDto := dto.ShopWarehouseCreateDTO{
+		Code:          "商家仓1",
+		Name:          "商家仓1",
+		SpWarehouseId: 1,
+	}
+	controller.Create(createDto)
+
+	controller.GetShopWarehouse(1)
 	c.String(http.StatusOK, "ok")
+
 }

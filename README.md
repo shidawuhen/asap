@@ -67,7 +67,7 @@ brew install redis
 修改为：
 requirepass 你的密码
 服务端启动：
-/usr/local/bin/redis-server /usr/local/etc/redis.conf
+/usr/local/bin/redis-server /usr/local/etc/redis.conf &
 命令行登录：
 redis-cli -p 6379 -a auth
 
