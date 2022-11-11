@@ -71,6 +71,10 @@ requirepass 你的密码
 命令行登录：
 redis-cli -p 6379 -a auth
 
+### 数据库
+mysql.server start &
+mysql -uroot -p
+1234Abcd*
 
 ## 我的博客-程序员麻辣烫的博客
 这是我的项目地址：https://github.com/shidawuhen/shidawuhen.github.io
