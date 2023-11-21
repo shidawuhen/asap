@@ -35,7 +35,7 @@ func New() *Engine {
 	engine.pool.New = func() interface{} {
 		return engine.allocateContext()
 	}
-	engine.router = make(map[string]map[string]HandlersChain, 0)
+	engine.router = make(map[string]map[string]HandlersChain)
 	return engine
 }
 
@@ -69,7 +69,7 @@ func (engine *Engine) handleHTTPRequest(c *Context) {
 			return
 		}
 	}
-	c.String("%s", httpMethod+" "+rPath+" doesnt exists")
+	c.String("%s", httpMethod+" "+rPath+" doesn't exist")
 	return
 }
 
@@ -78,13 +78,14 @@ func (engine *Engine) AddRoute(method, path string, handlers ...HandlerFunc) {
 	//1.判断该http方法是否存在
 	_, ok := engine.router[method]
 	if !ok {
-		engine.router[method] = make(map[string]HandlersChain, 0)
+		engine.router[method] = make(map[string]HandlersChain)
 	}
 	//2.判断该路径是否存在，如果不存在则插入，如果存在，则不处理
 	_, ok = engine.router[method][path]
 	if !ok {
 		engine.router[method][path] = handlers
 	}
+	fmt.Println(engine.router)
 }
 
 //运行服务，监听请求
