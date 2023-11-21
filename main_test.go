@@ -1,20 +1,36 @@
 package main
 
 import (
+	"fmt"
+	"io/ioutil"
+	"log"
 	"net/http"
 	"net/http/httptest"
 	"testing"
 
+	f "asap/framework"
+
 	"github.com/stretchr/testify/assert"
 )
 
+func pong(c *f.Context) {
+	c.String("%s", "pong")
+}
+
 func TestPingRoute(t *testing.T) {
-	router := setupRouter()
+	r := f.New()
+	r.AddRoute("GET", "/ping", pong)
 
-	w := httptest.NewRecorder()
-	req, _ := http.NewRequest("GET", "/ping", nil)
-	router.ServeHTTP(w, req)
+	ts := httptest.NewServer(r)
+	defer ts.Close()
 
-	assert.Equal(t, http.StatusOK, w.Code)
-	assert.Equal(t, "pong", w.Body.String())
+	{
+		res, err := http.Get(fmt.Sprintf("%s/ping", ts.URL))
+		if err != nil {
+			log.Println(err)
+		}
+		resp, _ := ioutil.ReadAll(res.Body)
+		assert.Equal(t, http.StatusOK, res.StatusCode)
+		assert.Equal(t, "pong", string(resp))
+	}
 }
