@@ -12,4 +12,5 @@ func InitRouter(router *gin.Engine) {
 	variousFunc(router)
 	dddFunc(router)
 	sseFunc(router)
+	oauthFunc(router)
 }
